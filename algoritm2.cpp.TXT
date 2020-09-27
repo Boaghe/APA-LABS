@@ -1,0 +1,32 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int fib(int n){
+  int i = 1;
+  int j = 0;
+
+  for (int k = 0; k < n; k++){
+    j = i + j;
+    i = j - i;
+  }
+  return j;
+}
+
+int main(){
+
+     time_t start, end;
+     time(&start);
+  int a;
+
+  std::cout << "Introdu numarul: ";
+  std::cin >> a;
+  std::cout << fib(a) << endl;
+  time(&end);
+
+  double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+  std::cout << "Time taken by program is : " << fixed << time_taken << setprecision(5);
+  std::cout << " sec " << endl;
+
+}

@@ -1,0 +1,41 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int fib3(int n){
+  int i = 1, j = 0, k = 0, h = 1;
+  int t;
+
+  while(n > 0){
+    if (n % 2 != 0){
+
+      t = j * h;
+      j = (i * h) + (j * k) + t;
+      i = (i * k) + t;
+
+    }
+    t = (h * h);
+    h=(2 * k * h) + t;
+    k=(k * k) + t;
+    n /= 2;
+
+  }
+  return j;
+}
+
+int main(){
+
+   time_t start, end;
+     time(&start);
+  int a;
+
+  std::cout << "Introdu numarul: ";
+  std::cin >> a;
+  std::cout << fib3(a) << endl;
+  time(&end);
+
+  double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+  std::cout << "Time taken by program is : " << fixed << time_taken << setprecision(5);
+  std::cout << " sec " << endl;
+
+}
